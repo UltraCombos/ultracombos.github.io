@@ -46,9 +46,7 @@
                     <div class="col p-4 d-flex flex-column position-static">
                         <strong class="d-inline-block mb-2 text-primary">Ultra Combos</strong>
                         <h3 class="mb-0">System Check</h3>
-                        <a id="system_check_link"
-                            href="http://update.ultracombos.net/system_check/Ultra%20Combos%20System%20Check%20Setup%200.3.2.exe"
-                            class="stretched-link">Click to download</a>
+                        <a id="system_check_link" href="#" class="stretched-link">Click to download</a>
                     </div>
                 </div>
             </div>
@@ -70,10 +68,6 @@
         releaseDate: '2019-11-13T07:11:12.527Z'
         `;
         fetch(path, { mode: 'no-cors' })
-            .then(response => {
-                console.log(response);
-                return response.blob();
-            })
             .then(response => {
                 return response.text();
             })
