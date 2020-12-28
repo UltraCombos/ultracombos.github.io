@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Ultra Combos Co., Ltd.">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>OTA Download Links</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.14.1/js-yaml.min.js"></script>
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron p-4 p-md-6 text-white rounded bg-dark">
+            <div class="px-0">
+                <h1 class="display-6 font-italic">Ultra Combos App Series</h1>
+                <p class="lead my-6">Ultra Combos Co., Ltd.</p>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-md-6 col-lg-4">
+                <div
+                    class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary">Ultra Combos</strong>
+                        <h3 class="mb-0">System Check</h3>
+                        <a id="system_check_link"
+                            href="http://update.ultracombos.net/system_check/Ultra%20Combos%20System%20Check%20Setup%200.3.2.exe"
+                            class="stretched-link">Click to download</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let baseUrl = "http://update.ultracombos.net/system_check";
+        let path = `${baseUrl}/latest.yml`;
+        let content = `
+        version: 0.3.2
+        files:
+          - url: Ultra Combos System Check Setup 0.3.2.exe
+            sha512: LUCExBmjvdTIuficZH1ybzGmn0j2rmFpSYsz5aJPC8Bt2vWY/fMh3G3ee/JIWZuo6A2TpmtsFLjDvxXp5kJVcQ==
+            size: 47551878
+            isAdminRightsRequired: true
+        path: Ultra Combos System Check Setup 0.3.2.exe
+        sha512: LUCExBmjvdTIuficZH1ybzGmn0j2rmFpSYsz5aJPC8Bt2vWY/fMh3G3ee/JIWZuo6A2TpmtsFLjDvxXp5kJVcQ==
+        releaseDate: '2019-11-13T07:11:12.527Z'
+        `;
+        fetch(path, { mode: 'no-cors' })
+            .then(response => {
+                console.log(response);
+                return response.blob();
+            })
+            .then(response => {
+                return response.text();
+            })
+            .then(function (myJson) {
+                console.log(`result a ${myJson}`);
+            })
+            .catch(error => console.error('Error:', error));
+        var doc = jsyaml.load(content);
+        document.getElementById("system_check_link").href = `${baseUrl}/${doc.path}`;
+    </script>
+</body>
+
+</html>
