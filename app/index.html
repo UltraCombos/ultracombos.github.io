@@ -52,6 +52,26 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="jumbotron p-4 p-md-6 text-white rounded bg-dark">
+            <div class="px-0">
+                <h1 class="display-6 font-italic">Ultra Combos App Series</h1>
+                <p class="lead my-6">Ultra Combos Co., Ltd.</p>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-md-6 col-lg-4">
+                <div
+                    class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary">Ultra Combos</strong>
+                        <h3 class="mb-0">Screen Blocker</h3>
+                        <a id="screen_blocker_link" href="#" class="stretched-link">Click to download</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script type="text/javascript">
         let baseUrl = "https://update.ultracombos.net/system_check";
@@ -78,6 +98,35 @@
         var doc = jsyaml.load(content);
         document.getElementById("system_check_link").href = `${baseUrl}/${doc.path}`;
     </script>
+    <script type="text/javascript">
+        let baseUrl = "https://update.ultracombos.net/screen_blocker";
+        let path = `${baseUrl}/latest.yml`;
+        let content = `
+        version: 1.2.0
+        files:
+          - url: Ultra Combos Screen Blocker Setup 1.2.0.exe
+            sha512: 5vCcf33JrdFU4ivLkMWqtzcegGWuPuVIrkXqpSnqS+LQADHx1V4urCdviQ+qnItzouesYwsC2MWNl6KVBXz3Hw==
+            size: 59655310
+            isAdminRightsRequired: true
+        path: Ultra Combos Screen Blocker Setup 1.2.0.exe
+        sha512: 5vCcf33JrdFU4ivLkMWqtzcegGWuPuVIrkXqpSnqS+LQADHx1V4urCdviQ+qnItzouesYwsC2MWNl6KVBXz3Hw==
+        releaseDate: '2021-05-06T04:17:08.144Z'
+        `;
+        fetch(path, { mode: 'no-cors' })
+            .then(response => {
+                return response.text();
+            })
+            .then(function (myJson) {
+                console.log(`result a ${myJson}`);
+            })
+            .catch(error => console.error('Error:', error));
+        var doc = jsyaml.load(content);
+        document.getElementById("screen_blocker_link").href = `${baseUrl}/${doc.path}`;
+    </script>
+    
+    
+    
+    
 </body>
 
 </html>
