@@ -89,9 +89,9 @@
         document.getElementById("system_check_link").href = `${baseUrl}/${doc.path}`;
     </script>
     <script type="text/javascript">
-        let baseUrl = "https://update.ultracombos.net/screen_blocker";
-        let path = `${baseUrl}/latest.yml`;
-        let content = `
+        let baseUrl2 = "https://update.ultracombos.net/screen_blocker";
+        let path2 = `${baseUrl}/latest.yml`;
+        let content2 = `
         version: 1.2.0
         files:
           - url: Ultra Combos Screen Blocker Setup 1.2.0.exe
@@ -102,7 +102,7 @@
         sha512: 5vCcf33JrdFU4ivLkMWqtzcegGWuPuVIrkXqpSnqS+LQADHx1V4urCdviQ+qnItzouesYwsC2MWNl6KVBXz3Hw==
         releaseDate: '2021-05-06T04:17:08.144Z'
         `;
-        fetch(path, { mode: 'no-cors' })
+        fetch(path2, { mode: 'no-cors' })
             .then(response => {
                 return response.text();
             })
@@ -110,8 +110,8 @@
                 console.log(`result a ${myJson}`);
             })
             .catch(error => console.error('Error:', error));
-        var doc = jsyaml.load(content);
-        document.getElementById("screen_blocker_link").href = `${baseUrl}/${doc.path}`;
+        var doc2 = jsyaml.load(content2);
+        document.getElementById("screen_blocker_link").href = `${baseUrl2}/${doc2.path}`;
     </script>
     
     
