@@ -17,13 +17,13 @@
             <key>metadata</key>
             <dict>
                 <key>bundle-identifier</key>
-                <string>com.ultracombos.21008-MZBuildAMinion</string>
+                <string>com.ultracombos.21008-VLElMacho</string>
                 <key>bundle-version</key>
                 <string>1.0.0</string>
                 <key>kind</key>
                 <string>software</string>
                 <key>title</key>
-                <string>21008-MZ_BuildAMinion</string>
+                <string>21008-VL_ElMacho</string>
             </dict>
         </dict>
     </array>
