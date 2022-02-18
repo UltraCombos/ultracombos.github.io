@@ -11,19 +11,19 @@
                     <key>kind</key>
                     <string>software-package</string>
                     <key>url</key>
-                    <string>https://s3.ap-northeast-2.amazonaws.com/ultracombos.project/19002-GiantMuseum/App/GM7-3-1-Client-C.ipa</string>
+                    <string>https://s3.ap-northeast-2.amazonaws.com/ultracombos.project/19002-GiantMuseum/App/GM7-3-1-Client-B.ipa</string>
                 </dict>
             </array>
             <key>metadata</key>
             <dict>
                 <key>bundle-identifier</key>
-                <string>com.UltraCombos.GM7-3-1-Client-C</string>
+                <string>com.UltraCombos.GM7-3-1-Client-B</string>
                 <key>bundle-version</key>
                 <string>1.0.0</string>
                 <key>kind</key>
                 <string>software</string>
                 <key>title</key>
-                <string>GM 7-3-1 iPad</string>
+                <string>GM 7-3-1-B iPad</string>
             </dict>
         </dict>
     </array>
