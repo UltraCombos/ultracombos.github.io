@@ -95,7 +95,11 @@ function createAppNode(project, name, url){
     node.attr('id',id);          
     node.find('#_label_project').html(project);
     node.find('#_label_app').html(name);
-    node.find('#_link').attr('href',`${DOWLOAD_SCHEME}${createDynamicFile(url, name)}`);
+    node.find('#_link').attr('href',`${DOWLOAD_SCHEME}${url}`);
+
+    node.find('#_test_link').click(()=>{
+        window.location.href=`${DOWLOAD_SCHEME}${createDynamicFile(url)}`;
+    });
     
     $('#_list').append(node);
 }
