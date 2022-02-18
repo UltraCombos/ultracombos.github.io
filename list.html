@@ -1,0 +1,46 @@
+<html>
+<head>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1074.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">
+    
+    
+    <!-- common js & css -->
+    <link href="./src/css/page.css" rel="stylesheet">
+    <script src="./src/js/util.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron p-4 p-md-6 text-white rounded bg-dark">
+			<div class="px-0">
+				<h1 class="display-6 font-italic">OTA Download Links</h1>
+				<p class="lead my-6">Ultra Combos Co., Ltd.</p>
+			</div>
+		</div>
+		<div id="_list" class="row">
+			<template id="_template">
+				<div class="col-md-6 col-lg-4">
+					<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+						<div class="col p-4 d-flex flex-column position-static">
+							<strong id="_label_project" class="d-inline-block mb-2 text-primary">TMP_PROJECT</strong>
+							<h3 id="_label_app" class="mb-0">TMP_APP</h3>
+							<a id="_link" href="itms-services://?action=download-manifest&url=[link_to_plist]" class="stretched-link">Click to download</a>			  
+						</div>
+					</div>        
+				</div>
+			</template>     
+
+			<div id="_loading" class="text-center col-12">
+				<div class="spinner-border" role="status">
+					<span class="sr-only">Loading...</span>
+				</div>
+			</div>
+		</div>    
+		<div id="_alert" class="alert alert-dark d-none" role="alert">No app found!</div>
+	</div>
+</body>
+
+</html>
