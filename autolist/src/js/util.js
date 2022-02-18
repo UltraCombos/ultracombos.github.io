@@ -2,7 +2,7 @@ const S3_BUCKET_URL='https://s3.ap-northeast-2.amazonaws.com/ultracombos.project
 const LIST_S3_URL='https://bmxf17dhzg.execute-api.ap-northeast-1.amazonaws.com/default/';
 const DOWLOAD_SCHEME='itms-services://?action=download-manifest&url=';
 
-const EXT_TO_FIND='.plist';
+const EXT_TO_FIND='.ipa';
 
 $(document).ready(function(){
     init();
@@ -13,7 +13,7 @@ function init(){
   const folder=getFolderFromURL();
 
   if(folder){
-    getIPA(folder, (data)=>{
+    getAvailableApp(folder, (data)=>{
 
         $('#_loading').addClass('d-none');
       
@@ -44,7 +44,7 @@ function getFolderFromURL(){
         return searchParams.get('folder');
 }
 
-function getIPA(folder, callback){
+function getAvailableApp(folder, callback){
     $.ajax({
         url: LIST_S3_URL,
         method:'POST',
@@ -95,7 +95,48 @@ function createAppNode(project, name, url){
     node.attr('id',id);          
     node.find('#_label_project').html(project);
     node.find('#_label_app').html(name);
-    node.find('#_link').attr('href',`${DOWLOAD_SCHEME}${url}`);
+    node.find('#_link').attr('href',`${DOWLOAD_SCHEME}${createDynamicFile(url, name)}`);
     
     $('#_list').append(node);
+}
+
+function createDynamicFile(ipa_url,name){
+
+    var contents=`<?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+        <key>items</key>
+        <array>
+            <dict>
+                <key>assets</key>
+                <array>
+                    <dict>
+                        <key>kind</key>
+                        <string>software-package</string>
+                        <key>url</key>
+                        <string>${ipa_url}</string>
+                    </dict>
+                </array>
+                <key>metadata</key>
+                <dict>
+                    <key>bundle-identifier</key>
+                    <string>com.ultracombos.gm-4-2-1</string>
+                    <key>bundle-version</key>
+                    <string>1.0.0</string>
+                    <key>kind</key>
+                    <string>software</string>
+                    <key>title</key>
+                    <string>${name}</string>
+                </dict>
+            </dict>
+        </array>
+    </dict>
+    </plist>`;
+
+    var blob=new Blob([contents], {type: "text/plain"});
+    var url=window.URL.createObjectURL(blob);
+
+    return url;
+
 }
