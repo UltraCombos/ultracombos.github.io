@@ -16,7 +16,28 @@
     <!-- Bootstrap core CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">
     
-    
+	<!-- Sentry -->
+	<script
+		src="https://browser.sentry-cdn.com/6.17.9/bundle.min.js"
+		integrity="sha384-bg8ATkDzxNiciak2tVJV/r+DHguxvOKHQqRi2SKP2mc8IOZphuG/bYdsyBm+KQC3"
+		crossorigin="anonymous"
+		></script>
+	<script
+		src="https://browser.sentry-cdn.com/6.17.9/bundle.tracing.min.js"
+		integrity="sha384-FItuQ+AF7gqljIq5rozCj0vTwFbFlxfi7HCL/AHpP6jtDXICPcQyHXOceH/poGUw"
+		crossorigin="anonymous"
+		></script>
+	<script>
+		Sentry.init({
+			dsn: "https://040c9960f0e7409fb31980e90a93b004@o1106673.ingest.sentry.io/6222435",
+			integrations: [new Sentry.BrowserTracing()],
+
+			// Set tracesSampleRate to 1.0 to capture 100%
+			// of transactions for performance monitoring.
+			// We recommend adjusting this value in production
+			tracesSampleRate: 1.0,
+		});
+	</script>
     <!-- common js & css -->
     <link href="./src/css/page.css" rel="stylesheet">
     <script src="./src/js/util.js"></script>
@@ -37,8 +58,12 @@
 						<div class="col p-4 d-flex flex-column position-static">
 							<strong id="_label_project" class="d-inline-block mb-2 text-primary">TMP_PROJECT</strong>
 							<h3 id="_label_app" class="mb-0">TMP_APP</h3>
-							<a id="_link" href="itms-services://?action=download-manifest&url=[link_to_plist]" class="stretched-link">Click to download</a>			  
-							<div id="_test_link" class="stretched-link">test download</div>
+							<p>
+								<a id="_link" href="itms-services://?action=download-manifest&url=[link_to_plist]">
+									Click to download
+								</a>				
+							</p>			
+							<!-- <div id="_test_link" class="btn btn-secondary btn-block">test download</div> -->
 						</div>
 					</div>        
 				</div>
