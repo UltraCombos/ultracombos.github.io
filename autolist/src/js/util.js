@@ -1,8 +1,9 @@
 const S3_BUCKET_URL='https://s3.ap-northeast-2.amazonaws.com/ultracombos.project/';
-const GET_APP_LIST_FROM_LAMBDA='https://bmxf17dhzg.execute-api.ap-northeast-1.amazonaws.com/default/';
+const LAMBDA_URL='https://i7jlsl23sb.execute-api.ap-northeast-1.amazonaws.com/default';
+const GET_APP_LIST_FROM_LAMBDA=`${LAMBDA_URL}/s3_list`;
 const DOWLOAD_SCHEME='itms-services://?action=download-manifest&url=';
 
-const GET_PLIST_FROM_LAMBDA='https://i7jlsl23sb.execute-api.ap-northeast-1.amazonaws.com/default/plist_for_app';
+const GET_PLIST_FROM_LAMBDA=`${LAMBDA_URL}/plist_for_app`;
 const GET_PLIST_FROM_N8N='http://nas.ultracombos.com:5678/webhook-test/16/webhook1/test';
 const EXT_TO_FIND='.ipa';
 
