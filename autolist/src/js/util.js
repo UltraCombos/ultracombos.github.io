@@ -1,5 +1,5 @@
 const S3_BUCKET_URL='https://s3.ap-northeast-2.amazonaws.com/ultracombos.project/';
-const LIST_S3_URL='https://bmxf17dhzg.execute-api.ap-northeast-1.amazonaws.com/default/';
+const GET_APP_LIST_FROM_LAMBDA='https://bmxf17dhzg.execute-api.ap-northeast-1.amazonaws.com/default/';
 const DOWLOAD_SCHEME='itms-services://?action=download-manifest&url=';
 
 const GET_PLIST_FROM_LAMBDA='https://i7jlsl23sb.execute-api.ap-northeast-1.amazonaws.com/default/plist_for_app';
@@ -46,29 +46,31 @@ function getFolderFromURL(){
         return searchParams.get('folder');
 }
 
+function createAppListURL(folder, ext, maxKeys){
+    return `${GET_APP_LIST_FROM_LAMBDA}?prefix=${encodeURIComponent(folder)}&ext=${encodeURIComponent(ext)}&maxKeys=${maxKeys}`;
+}
+
 function getAvailableApp(folder, callback){
+
+    const url=createAppListURL(folder, EXT_TO_FIND, 1000);
     $.ajax({
-        url: LIST_S3_URL,
-        method:'POST',
+        url: url,
+        method:'GET',
         crossDomain:true,
         cache:false, 
         dataType: 'json', 
         contentType: 'application/json', 
-        data:JSON.stringify({
-            prefix:folder,
-            ext:EXT_TO_FIND,
-            maxKeys:1000,
-        }),
         success:(resp)=>{
-            const list=JSON.parse(resp.body);
+            //const list=JSON.parse(resp.body);
             // console.log(list);
-
-            callback(list);
+            callback(resp);
         },
         error:(resp)=>{
             console.error(resp);
         }
     });
+
+    
 }
 
 function parseData(data){
