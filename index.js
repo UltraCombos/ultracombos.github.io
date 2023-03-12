@@ -11,6 +11,7 @@ var app = express();
 // server.listen(process.env.PORT || 3000);
 
 app.use(cors({ origin: 'https://bmxf17dhzg.execute-api.ap-northeast-1.amazonaws.com', credentials :  true }));
+app.use(cors({ origin: 'https://s3.ap-northeast-2.amazonaws.com', credentials :  true }));
 app.use(express.static('.'));
 
 // app.get('*', function (req, res, next) {
