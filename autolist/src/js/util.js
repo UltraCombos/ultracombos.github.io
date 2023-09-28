@@ -106,7 +106,7 @@ function createAppNode(project, name, url){
     node.find('#_label_project').html(project);
     const appNameSplits = name.split('.');
     const appName = appNameSplits[appNameSplits.length-1];
-    node.find('#_label_app').html(name);
+    node.find('#_label_app').html(appName);
     node.find('#_link').attr('href',`${DOWLOAD_SCHEME}${encodeURIComponent(createPlistURL(url, name))}`);
 
 
