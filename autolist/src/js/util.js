@@ -82,7 +82,8 @@ function parseData(data){
     //const name=folders[folders.length-1].split('.')[0].replace('-manifest','');
 	var last = folders[folders.length-1];
 	last = last.replace(/\.[^/.]+$/, "");
-	//var splits=last.split('.');	
+	//var splits=last.split('.');
+    
 	const name=last.replace('-manifest','');
 
     return {
