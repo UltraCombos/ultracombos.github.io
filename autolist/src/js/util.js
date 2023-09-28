@@ -79,7 +79,11 @@ function parseData(data){
     // console.log(data);
 
     const folders=data.Key.split('/');
-    const name=folders[folders.length-1].split('.')[0].replace('-manifest','');
+    //const name=folders[folders.length-1].split('.')[0].replace('-manifest','');
+	var last = folders[folders.length-1];
+	last = last.replace(/\.[^/.]+$/, "");
+	var splits=last.split('.');	
+	const name=splits[splits.length-1].replace('-manifest','');
 
     return {
         project: folders[0],
