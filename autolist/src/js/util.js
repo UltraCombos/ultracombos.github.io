@@ -115,6 +115,6 @@ function createAppNode(project, name, url){
 
 function createPlistURL(url,name){
 
-    return `${GET_PLIST_FROM_LAMBDA}?url=${url}&name=${name}&bundle=${name}`;
+    return `${GET_PLIST_FROM_LAMBDA}?url=${url}&name=${name}&bundle=com.ultracombos.${name}`;
 
 }
